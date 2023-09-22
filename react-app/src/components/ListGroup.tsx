@@ -1,6 +1,9 @@
+import { useState } from "react";
+
 function ListGroup() {
   let items = ["New York", "San Francisco", "Tokyo", "London", "Paris"];
   let selectedIndex = 1;
+  useState(-1)
   return (
     <div>
       <h1 className="font-bold text-3xl">List</h1>
