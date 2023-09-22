@@ -1,13 +1,18 @@
 function ListGroup() {
   let items = ["New York", "San Francisco", "Tokyo", "London", "Paris"];
-const message = items.length === 0 ? <p>No items Found</p> : null;
   return (
     <div>
       <h1 className="font-bold text-3xl">List</h1>
-      {message}
+      {items.length === 0 && <p>No items found</p>}
       <ul className="w-96">
-        {items.map((item) => (
-          <li key={item}>{item}</li>
+        {items.map((item, index) => (
+          <li
+            className="border p-4 bg-gray-100"
+            key={item}
+            onClick={() => console.log(item, index)}
+          >
+            {item}
+          </li>
         ))}
       </ul>
     </div>
