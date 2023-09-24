@@ -1,8 +1,10 @@
-import ListGroup from "./components/ListGroup";
+import ListGroup from "./components/ListGroup"
+import ButtonComponent from "./components/ButtonComponent";
 function App() {
   return (
     <div>
-      <ListGroup/>
+      {/* <ListGroup/> */}
+      <ButtonComponent/>
     </div>
   );
 }
