@@ -1,4 +1,4 @@
-gimport ButtonComponent from "./components/ButtonComponent";
+import ButtonComponent from "./components/ButtonComponent";
 function App() {
   return (
     <div>
