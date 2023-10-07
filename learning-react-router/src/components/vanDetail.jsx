@@ -2,10 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 function Details() {
   const params = useParams();
-  // console.log(params);
   const [response, setResponse] = useState([]);
   useEffect(() => {
-    console.log("run log");
     fetch(`/api/vans/${params.id}`)
       .then((data) => data.json())
       .then((data) => setResponse(data.vans));

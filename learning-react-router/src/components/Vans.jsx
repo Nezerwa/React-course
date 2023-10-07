@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 function Vans() {
   const [data, setData] = useState([]);
   useEffect(() => {
-    console.log("log");
     fetch("/api/vans")
       .then((response) => response.json())
       .then((response) => setData(response.vans));
