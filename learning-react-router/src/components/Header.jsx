@@ -6,10 +6,11 @@ function Header() {
         #VanLife
         <nav>
           <Link to="/about">About</Link>
-          <Link to="/vans"></Link>
+          <Link to="/vans">Vans</Link>
+          <Link to="/host">Host</Link>
         </nav>
       </Link>
     </header>
   );
 }
-export default Header
+export default Header;
