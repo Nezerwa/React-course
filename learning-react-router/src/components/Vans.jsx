@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 function Vans() {
   const [data, setData] = useState([]);
@@ -8,7 +8,15 @@ function Vans() {
       .then((response) => response.json())
       .then((response) => setData(response.vans));
   }, []);
-  const vansElement = data.map((van) => (
+  const [SearchParams] = useSearchParams();
+  const typeFilter = SearchParams.get("type");
+  const diplayFiltered = typeFilter
+    ? data.filter((car) => (car.type.toLowerCase = typeFilter))
+    : data;
+
+  console.log(data.map((obj) => obj.type));
+
+  const vansElement = diplayFiltered.map((van) => (
     <div key={van.id} className="van-tile">
       <Link to={`/vans/${van.id}`}>
         <img src={van.imageUrl} alt="van" />
@@ -24,6 +32,10 @@ function Vans() {
     <div className="van-list-container">
       <h1>Explore our van options</h1>
       <div className="van-list">{vansElement}</div>
+      <Link to="?type=simple">Simple</Link>
+      <Link to="?type=luxury">Simple</Link>
+      <Link to="?type=rugged">Simple</Link>
+      <Link to=".">Clear</Link>
     </div>
   );
 }
