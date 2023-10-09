@@ -8,15 +8,13 @@ function Vans() {
       .then((response) => response.json())
       .then((response) => setData(response.vans));
   }, []);
-  const [SearchParams] = useSearchParams();
+  const [SearchParams, setSearchParams] = useSearchParams();
   const typeFilter = SearchParams.get("type");
-  const diplayFiltered = typeFilter
-    ? data.filter((car) => (car.type.toLowerCase = typeFilter))
+  const displayFiltered = typeFilter
+    ? data.filter((car) => car.type === typeFilter)
     : data;
 
-  console.log(data.map((obj) => obj.type));
-
-  const vansElement = diplayFiltered.map((van) => (
+  const vansElement = displayFiltered.map((van) => (
     <div key={van.id} className="van-tile">
       <Link to={`/vans/${van.id}`}>
         <img src={van.imageUrl} alt="van" />
@@ -31,11 +29,31 @@ function Vans() {
   return (
     <div className="van-list-container">
       <h1>Explore our van options</h1>
+      <button
+        onClick={() => setSearchParams({ type: "simple" })}
+        className="van-type simple"
+      >
+        Simple
+      </button>
+      <button
+        onClick={() => setSearchParams({ type: "luxury" })}
+        className="van-type luxury"
+      >
+        Luxury
+      </button>
+      <button
+        onClick={() => setSearchParams({ type: "rugged" })}
+        className="van-type rugged"
+      >
+        Rugged
+      </button>
+      <button
+        onClick={() => setSearchParams({})}
+        className="van-type clear-filters"
+      >
+        Clear filter
+      </button>
       <div className="van-list">{vansElement}</div>
-      <Link to="?type=simple">Simple</Link>
-      <Link to="?type=luxury">Simple</Link>
-      <Link to="?type=rugged">Simple</Link>
-      <Link to=".">Clear</Link>
     </div>
   );
 }
