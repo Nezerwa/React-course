@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import Home from "./components/Home";
 import About from "./components/About";
-import Vans, {loader as vansLoader} from "./components/Vans";
+import Vans, { loader as vansLoader } from "./components/Vans";
 import Details from "./components/vanDetail";
 import Layout from "./components/Layout";
 import Dashboard from "./components/host/Dashboard";
@@ -24,7 +24,7 @@ const router = createBrowserRouter(
     <Route element={<Layout />}>
       <Route path="/" element={<Home />} />
       <Route path="/about" element={<About />} />
-      <Route path="/vans" element={<Vans />} loader={vansLoader}/>
+      <Route path="/vans" element={<Vans />} loader={vansLoader} />
       <Route path="/vans/:id" element={<Details />} />
       <Route path="host" element={<HostLayout />}>
         <Route index element={<Dashboard />} />
@@ -42,7 +42,7 @@ const router = createBrowserRouter(
 );
 
 function App() {
-  return <RouterProvider router={router}/>;
+  return <RouterProvider router={router} />;
 }
 
 export default App;
