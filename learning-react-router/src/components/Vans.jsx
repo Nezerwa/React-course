@@ -1,7 +1,15 @@
 import { useEffect, useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useLoaderData, useSearchParams } from "react-router-dom";
+
+export function loader() {
+  return "this is my page";
+}
+
 
 function Vans() {
+  
+const loaderData = useLoaderData();
+console.log(loaderData);
   const [data, setData] = useState([]);
   useEffect(() => {
     fetch("/api/vans")
