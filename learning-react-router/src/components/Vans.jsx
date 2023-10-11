@@ -8,14 +8,6 @@ export function loader() {
 
 export default function Vans() {
   const [searchParams, setSearchParams] = useSearchParams();
-
-  /**
-   * Challenge: Use the vans data that came in from useLoaderData
-   * instead of the state and useEffect
-   * 1. Comment out the entire useEffect block
-   * 2. Make whatever other changes you need so it all works
-   *    again
-   */
   const vans = useLoaderData();
   console.log(vans);
   const typeFilter = searchParams.get("type");
