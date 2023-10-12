@@ -27,7 +27,7 @@ import { requireAuth } from "./utils";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<Layout />}>
-      <Route path="login" element={<Login />} loader={loginLoadergi}/>
+      <Route path="login" element={<Login />} loader={loginLoader}/>
       <Route path="/" element={<Home />} />
       <Route path="/about" element={<About />} />
       <Route
